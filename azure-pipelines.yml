@@ -1,0 +1,127 @@
+variables:
+  - group: mentallys_android_group
+
+trigger:
+  - master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - script: 'yes | /usr/local/lib/android/sdk/tools/bin/sdkmanager --licenses'
+    displayName: 'Accept Android licenses'
+
+  - task: android-manifest-version@1
+    displayName: 'Set version in Android Manifest'
+    inputs:
+      sourcePath: 'app/src/main/AndroidManifest.xml'
+      versionCodeOption: 'timestamp'
+      versionName: '$(versionName)'
+      printFile: true
+
+  - task: Gradle@2
+    displayName: 'Run UT and IT and generate CC report'
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      gradleOptions: '-Xmx3072m'
+      publishJUnitResults: true
+      testResultsFiles: '**/TEST-DEV.xml'
+      tasks: 'koverMergedXmlReport'
+
+  - task: Gradle@2
+    displayName: 'Assemble Dev'
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      gradleOptions: '-Xmx3072m'
+      tasks: 'assembleDevRelease'
+
+
+  - task: Gradle@2
+    displayName: 'Assemble Qa'
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      gradleOptions: '-Xmx3072m'
+      tasks: 'assembleQaRelease'
+
+  - task: Gradle@2
+    displayName: 'Assemble Prod'
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      gradleOptions: '-Xmx3072m'
+      tasks: 'assembleProdRelease'
+
+  - task: Gradle@2
+    displayName: 'Bundle Prod'
+    inputs:
+      workingDirectory: ''
+      gradleWrapperFile: 'gradlew'
+      gradleOptions: '-Xmx3072m'
+      tasks: ':app:bundleProdRelease'
+
+  - task: DownloadSecureFile@1
+    name: AndroidKeyStore
+    inputs:
+      secureFile: 'AndroidKeyStore.keystore'
+
+  - task: AndroidSigning@3
+    displayName: 'Signing apk'
+    inputs:
+      apkFiles: '**/*.apk'
+      apksignerKeystoreFile: 'AndroidKeyStore.keystore'
+      apksignerKeystorePassword: '$(apk-keystore-password)'
+      apksignerKeystoreAlias: '$(keystore-alias)'
+      apksignerKeyPassword: '$(apk-key-password)'
+      zipalign: false
+
+  - task: CmdLine@2
+    displayName: 'Signing and aligning AAB file(s) app\build\outputs\bundle\prodRelease\app-prod-release.aab'
+    inputs:
+      script: 'jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore $(AndroidKeyStore.secureFilePath) -storepass $(apk-keystore-password) -keypass $(apk-key-password) $(system.defaultworkingdirectory)/app/build/outputs/bundle/prodRelease/app-prod-release.aab $(keystore-alias)'
+
+  - task: CopyFiles@2
+    displayName: 'Move apk'
+    inputs:
+      contents: '**/*.apk'
+      targetFolder: '$(build.artifactStagingDirectory)'
+
+  - task: CopyFiles@2
+    displayName: 'Move bundle'
+    inputs:
+      SourceFolder: '$(system.defaultworkingdirectory)/app/build/outputs/bundle/prodRelease/'
+      Contents: '**'
+      TargetFolder: '$(build.artifactstagingdirectory)\drop'
+
+  # https://docs.microsoft.com/fr-fr/azure/devops/pipelines/tasks/test/publish-test-results?view=azure-devops&tabs=trx%2Cyaml
+  - task: PublishTestResults@2
+    displayName: 'Publish unit tests results'
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: '**/TEST-*.xml'
+
+  # https://docs.microsoft.com/fr-fr/azure/devops/pipelines/tasks/test/publish-code-coverage-results?view=azure-devops
+  - task: PublishCodeCoverageResults@1
+    displayName: 'Publish code coverage'
+    inputs:
+      codeCoverageTool: 'JaCoCo'
+      summaryFileLocation: '$(system.defaultworkingdirectory)/app/build/reports/kover/mentallys-xml/report.xml'
+      pathToSources: '$(system.defaultworkingdirectory)/app/src/'
+
+  - task: PublishBuildArtifacts@1
+    #condition: and(succeededOrFailed(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI'))
+    displayName: 'Publish apk artifact'
+    inputs:
+      pathToPublish: '$(build.artifactStagingDirectory)/app/build/outputs/'
+      artifactName: 'apk-files'
+      artifactType: 'container'
+
+  - task: PublishBuildArtifacts@1
+    #condition: and(succeededOrFailed(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), in(variables['Build.Reason'], 'IndividualCI', 'BatchedCI'))
+    displayName: 'Publish bundle artifact'
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)\drop'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'

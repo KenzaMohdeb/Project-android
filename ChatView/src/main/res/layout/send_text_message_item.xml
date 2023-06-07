@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/bubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="25sp"
+        android:minWidth="45sp"
+        android:padding="8sp"
+        android:maxWidth="300sp"
+        android:background="@drawable/send_message_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        app:alignContent="flex_end"
+        app:alignItems="stretch"
+        app:flexWrap="nowrap">
+
+        <TextView
+            android:id="@id/txtMessage"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            app:layout_maxWidth="250sp"
+            android:layout_marginLeft="10sp"
+            app:layout_alignSelf="center" />
+
+        <TextView
+            android:id="@id/txtDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/messageText"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/white"
+            app:layout_alignSelf="flex_end" />
+
+    </com.google.android.flexbox.FlexboxLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

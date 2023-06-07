@@ -1,0 +1,350 @@
+<resources>
+    <string name="empty" />
+    <string name="app_name">Mentallys</string>
+    <string name="generic_background_gradient_description">Grandient décoratif</string>
+    <string name="azure_communication_endpoint">https://mentallys-communicationservices-dev.communication.azure.com/</string>
+    <string name="generic_decorative_image_description">Image décorative</string>
+    <string name="greetings">Bienvenue</string>
+    <string name="mandatory_field"><font color='#FF0000'>*</font></string>
+    <string name="chat_with_speaker">Discuter avec un intervenant</string>
+    <string name="add_event">Ajouter un événement</string>
+    <string name="private_notes">Notes privées</string>
+    <string name="private_note_description">Ce que vous écrivez ici reste privé en n\'apparaît pas aux utilisataurs ayant accès à votre parcours.</string>
+    <string name="home_page_pic_description">Mentallys</string>
+    <string name="home_page_title_description">Trouvez de l\'aide</string>
+    <string name="movies_section_title">M\'informer</string>
+    <string name="movie_section_categories_title"><![CDATA[Catégories >]]></string>
+    <string name="self_care_title">Utiliser les autosoins</string>
+    <string name="self_care_program_title">Démarrer un programme d\'autosoins</string>
+    <string name="self_care_tools_title">Accéder aux outils d\'autosoins</string>
+    <string name="help_section_title_text">Trouver de l\'aide</string>
+    <string name="help_relative_title_text">Aider un proche</string>
+    <string name="find_service_relative_title">Trouver un service de soutien aux proches</string>
+    <string name="home_page_title">mentallys</string>
+    <string name="error_loading_events">Une erreur est survenue lors du chargement des données</string>
+    <string name="splash_screen_note">Notre santé mentale mérite ce que qu\'il y a de mieux</string>
+    <string name="free_service">Service gratuit d\'intérêt général</string>
+    <string name="save_event">Enregistrer</string>
+    <string name="maintenance">Entretien</string>
+    <string name="home_page_subtitle">Qu\'est ce qui ne va pas ?</string>
+    <string name="home_page_search">Rechercher</string>
+    <string name="home_page_guide_title">Suivez le guide</string>
+    <string name="home_page_guide_description">Répondre à des questions et accéder à un résumé personalisé des choix qui s\'offrent à vous.</string>
+    <string name="home_page_guide_action">Commencer</string>
+    <string name="home_page_help_title">Conseils personalisés</string>
+    <string name="home_page_help_description">Un pair aidant est une personne formée qui a traversé comme vous des difficultés, et qui va mieux.</string>
+    <string name="home_page_help_action">Voir les profils</string>
+    <string name="home_page_support_title">Consulter un professionnel</string>
+    <string name="home_page_support_description">Découvrez quel type de professionnel en santé mentale vous conviendrait le mieux.</string>
+    <string name="home_page_medic_title">Parler à un intervenant</string>
+    <string name="home_page_medic_description">Un travailleur social vous écoute et vous oriente vers les ressources appropriées.</string>
+    <string name="home_page_private_title">Consulter un médecin</string>
+    <string name="home_page_help_maxime">Parcourir des profils</string>
+    <string name="home_page_private_description">Vous n’avez pas de médecin de famille ?Explorez trois possibilités pour accéder à une consultation médicale rapidement.</string>
+    <string name="home_page_glossary_title">Glossaire</string>
+    <string name="home_page_glossary_description">Vous ne comprenez pas certains mots compliqués ou inhabituels ?</string>
+    <string name="home_page_glossary_action">Voir les définitions</string>
+    <string name="home_page_app_title">Logo de l\'application</string>
+    <string name="bottom_menu_help">Trouver de l\'aide</string>
+    <string name="bottom_menu_care">Prendre soin de moi</string>
+    <string name="bottom_menu_follow_up">Mon suivi</string>
+    <string name="begin">Commencer</string>
+    <string name="view_pager_description">Prenez soin de votre santé psychologique et trouvez l’aide dont vous avez besoin.</string>
+    <string name="view_pager_mention">Service gratuit agréé</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="don_t_have_an_account_register_now">Vous n\'avez pas de compte ?<b> S\'inscrire maintenant</b></string>
+    <string name="email">email</string>
+    <string name="email_hint">john@mail.czom</string>
+    <string name="password">Mot de passe *</string>
+    <string name="login">Login</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="register_now">Register Now</string>
+    <string name="already_have_an_account_login_now">Already have an account? <b>Login Now</b></string>
+    <string name="resource_private">Privé</string>
+    <string name="resource_public">Public</string>
+    <string name="resource_community">Communautaire</string>
+    <string name="resource_private_plural">Privés</string>
+    <string name="resource_public_plural">Publics</string>
+    <string name="resource_community_plural">Communautaires</string>
+    <string name="resource_social_worker">Travailleur social</string>
+    <string name="resource_psychologist">Psychologue</string>
+    <string name="resource_family_therapist">Thérapeute conjugal et familial</string>
+    <string name="resource_sexologist">Sexologue</string>
+    <string name="resource_occupational_therapist">Ergothérapeute</string>
+    <string name="resource_peer">Pair aidant</string>
+    <string name="resource_psychoeducator">Psychoéducateur</string>
+    <string name="resource_psychiatrist">Psychiatre</string>
+    <string name="resource_nurse">Infirmière</string>
+    <string name="resource_family_doctor">Médecin de famille</string>
+    <string name="resource_adult">Adultes</string>
+    <string name="resource_teenager">Jeunes</string>
+    <string name="resource_family">Familles</string>
+    <string name="resource_elder">Ainés</string>
+    <string name="resource_free">Sans frais</string>
+    <string name="resource_reduce">Frais réduits</string>
+    <string name="resource_paid">À vos frais</string>
+    <string name="resource_on_site">En personne</string>
+    <string name="resource_remote">À distance</string>
+    <string name="language_french">Français</string>
+    <string name="language_english">Anglais</string>
+    <string name="language_spanish">Espagnol</string>
+    <string name="language_german">Allemand</string>
+    <string name="error_geolocation">Impossible de récupérer la géolocalisation</string>
+    <string name="error_map_no_result">Aucun résultat dans cette région</string>
+    <string name="error_list_no_result_title">Aucun résultat</string>
+    <string name="error_list_no_result_description">Essayez les filtres ou une recherche par mots</string>
+    <string name="error_list_no_history_title">Pas d\'historique</string>
+    <string name="error_list_no_history_description">Commencer par consulter une page de resource</string>
+    <string name="resource_menu_share">Partager</string>
+    <string name="resource_menu_bookmark">Sauvegarder pour plus tard</string>
+    <string name="resource_call">Appeler</string>
+    <string name="resource_message">Courriel</string>
+    <string name="resource_client">Clientèle</string>
+    <string name="resource_service">Services offerts</string>
+    <string name="resource_professional">Intervenants</string>
+    <string name="resource_signal">Mettre à jour ce service</string>
+    <string name="resource_search_title">Quel type d\'aide souhaitez vous ?</string>
+    <string name="resource_search_subtitle">Recherchez des services</string>
+    <string name="intervenant_search_title">Avec qui souhaitez-vous discuter?</string>
+    <string name="intervenant_search_subtitle">Rechercher des intervenants</string>
+    <string name="resource_from">De</string>
+    <string name="resource_to">à</string>
+    <string name="messages">Messages</string>
+    <string name="notification">Notifications</string>
+    <string name="documents">Documents</string>
+    <string name="bottom_sheet_filter_display_more"><u>Afficher plus</u></string>
+    <string name="bottom_sheet_filter_display_less"><u>Afficher moins</u></string>
+    <string name="bottom_sheet_cost">Coûts</string>
+    <string name="bottom_sheet_client">Clientèle</string>
+    <string name="bottom_sheet_tags">Motifs</string>
+    <string name="bottom_sheet_activities">Intervenants</string>
+    <string name="bottom_sheet_modalities">Modalités</string>
+    <string name="bottom_sheet_languages">Langues</string>
+    <string name="bottom_sheet_filters">Filtres</string>
+    <string name="bottom_sheet_reset_filters">Tout effacer</string>
+    <string name="email_modification_subject">[Demande de modification]</string>
+    <string name="email_modification_template">Décrivez succinctement le problème :</string>
+    <string name="email_missing_subject">[Demande d\'ajout de resource]</string>
+    <string name="email_missing_template">Décrivez la resource manquante :</string>
+    <plurals name="bottom_sheet_filter_display_services">
+        <item quantity="one">Afficher %1$s service</item>
+        <item quantity="other">Afficher %1$s services</item>
+    </plurals>
+    <string name="days_monday">Lundi</string>
+    <string name="days_tuesday">Mardi</string>
+    <string name="days_wednesday">Mercredi</string>
+    <string name="days_thursday">Jeudi</string>
+    <string name="days_friday">Vendredi</string>
+    <string name="days_saturday">Samedi</string>
+    <string name="days_sunday">Dimanche</string>
+    <string name="search_recently_seen_resources">Ressources consultées récemment</string>
+    <string name="resource_missing_service_title">Il manque un service ?</string>
+    <string name="resource_missing_service_description">Suggérer un service</string>
+    <string name="prenom">Prenom</string>
+    <string name="nom_de_famille">Nom de famille</string>
+    <string name="upload_image">Image Icon</string>
+    <string name="take_photo">take photo</string>
+    <string name="role_name">Role Name</string>
+    <string name="askForPermission_msg">Request code is not specified</string>
+    <string name="camera_internal_error_msg">Erreur de lire les données de l\'image</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="preview_uploaded_image">preview uploaded image</string>
+    <string name="creer_compte_avantage">Créez votre compte pour pouvoir utiliser le chat</string>
+    <string name="formulaire_de_chat">formulaire de chat</string>
+    <string name="chat_user_role">Professional</string>
+    <string-array name="role_names">
+        <item>User</item>
+        <item>Professional</item>
+    </string-array>
+    <string name="title_activity_chat_main">ChatMainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="txtPassword">Password</string>
+    <string name="inertervenant_sexe">Homme</string>
+    <string name="disponible_maintenant">Disponible maintenant</string>
+    <string name="required_login_message">Identifiez vous pour envoyer un message</string>
+    <string name="inscription">Inscription</string>
+    <string name="connexion">Connexion</string>
+    <string name="introd_message">Démarrez une conversation pour bénéficier des messages.</string>
+    <string name="btn_choisir_un_intervenant">Choisir un intervenant</string>
+    <string name="Notification_message">Démarrez une conversation pour bénéficier des notifications.</string>
+    <string name="document_message">Démarrez une conversation pour bénéficier des documents.</string>
+    <string name="approximatif">approximatif</string>
+    <string name="autour_de_moi">Autour de moi</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="fg_adresse_courriel">l\'adresse courriel</string>
+    <string name="me_connecter">me connecter</string>
+    <string name="envoyer_votre_e_mail">Envoyer votre e-mail</string>
+    <string name="mot_de_passe_oubli">Mot de passe oublié?</string>
+    <string name="errorSendingPasswordForgotten">erreur d\'envoyer l\'email</string>
+    <string name="image_de_profile">Image de Profile</string>
+    <string name="nom_d_utilisateur">Adresse courriel</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="connexionBtnLogin">Connexion</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="topic_chat_communication">Chat Communication</string>
+
+
+    <string name="token_url_hint">Token function URL</string>
+    <string name="acs_endpoint_hint">ACS Endpoint</string>
+    <string name="name_hint">Your Name</string>
+    <string name="identity_hint">Identity</string>
+    <string name="group_call_label">Group call</string>
+    <string name="teams_meeting_label">Teams meeting</string>
+    <string name="group_call_id_or_teams_meeting_hint">Group ID or Meeting link</string>
+    <string name="chat_thread_id_hint">Chat Thread ID</string>
+    <string name="endpoint_url_hint">Endpoint</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="launch_button_text">Launch</string>
+    <string name="open_ui_button_text">Open partial view</string>
+    <string name="open_full_screen_ui_button_text">Open Full Screen UI</string>
+    <string name="close_composite_button_text">Stop Composite</string>
+    <string name="acs_token_hint">ACS Token</string>
+    <string name="acs_user_id_hint">Communication User Id</string>
+    <string name="launch_type_text">Launch In:</string>
+    <string name="token_function_radio_button_text">Token Function</string>
+    <string name="acs_token_radio_button_text">@string/acs_token_hint</string>
+    <string name="diagnostics">FPS, Memory Diagnostics</string>
+    <string name="secondary_theme">Secondary theme</string>
+    <string name="launch_settings_button_text">Settings</string>
+    <string name="language_setting_label">Language Settings</string>
+    <string name="call_setting_label">Call Settings</string>
+    <string name="chat_setting_label">Chat Settings</string>
+    <string name="is_rtl_check_box_label">isRTL</string>
+    <string name="language_dropdown_hint">Language</string>
+    <string name="language_default_selection">ENGLISH</string>
+    <string name="version">version:</string>
+    <string name="debug">Debug</string>
+    <string name="rendered_display_name">Rendered Display Name</string>
+    <string name="local_avatar_injection">Local Avatar Injection</string>
+    <string name="remote_avatar_injection">Remote Avatar Injection</string>
+    <string name="remote_participant_inject_avatar">Inject avatar\'s</string>
+    <string name="call_title">Call title</string>
+    <string name="call_subtitle">Call subtitle</string>
+    <string name="intervenants">intervenants</string>
+    <string name="startButton">Commencer Conversation</string>
+    <string name="communiquer">Communiquer</string>
+    <string name="intervenant">intervenant</string>
+    <string name="participant">participant</string>
+    <string name="julie_tansey">Julie Tansey</string>
+    <string name="message_section">Message section</string>
+    <string name="search">search</string>
+    <string name="avec_qui_souhaitez_vous_discuter">Avec qui souhaitez-vous discuter ?</string>
+    <string name="recherchez_des_intervenants">Recherchez des intervenants</string>
+    <string name="john">John</string>
+    <string name="doe">Doe</string>
+    <string name="password_hint">*****</string>
+    <string name="back">back</string>
+    <string name="user_chat_image">user</string>
+    <string name="remi_lalonde">Remi Lalonde</string>
+    <string name="pair_aidant">Pair aidant</string>
+    <string name="horloge_icon">horloge</string>
+    <string name="disponible_horloge">Disponible</string>
+    <string name="call_icon">Call</string>
+    <string name="remi_lalonde_1">Remi Lalonde</string>
+    <string name="_15_9_km">15.9 km</string>
+    <string name="envoyer_un_message">Envoyer un message</string>
+    <string name="example_test_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+    <string name="th_mes">Thèmes</string>
+    <string name="violence_sexuelle">Violence sexuelle</string>
+    <string name="relation_au_travail">Relation au travail</string>
+    <string name="mardi_au_mercredi">Mardi au mercredi</string>
+    <string name="_10h_00_16h_00">10h:00 - 16h:00</string>
+    <string name="fran_ais_englais">Français . Englais</string>
+</resources>
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Mentallys" parent="CommonTheme">
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/light_grey</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

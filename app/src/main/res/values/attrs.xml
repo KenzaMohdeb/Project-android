@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="advanced_search_component_attributes">
+        <attr name="advanced_search_component_title" format="reference" />
+        <attr name="advanced_search_component_subtitle" format="reference" />
+        <attr name="advanced_search_component_is_filter_button_shown" format="boolean" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/viewPagerFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.uqam.mentallys.view.ui.homepage.HomeFragment"
+        android:label="mentallys"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_mainChatFragment"
+            app:destination="@id/mainChatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resourceFragment"
+        android:name="com.uqam.mentallys.view.ui.resource.ResourceFragment"
+        android:label="mentallys"
+        tools:layout="@layout/fragment_resource">
+        <argument
+            android:name="resourceInstance"
+            app:argType="com.uqam.mentallys.model.resource.Resource" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.uqam.mentallys.view.ui.message.MessageFragment"
+        android:label="Messages"
+        tools:layout="@layout/fragment_message" />
+    <fragment
+        android:id="@+id/networkFragment"
+        android:name="com.uqam.mentallys.view.ui.network.NetworkFragment"
+        android:label="Réseau"
+        tools:layout="@layout/fragment_network" />
+    <fragment
+        android:id="@+id/pathwayFragment"
+        android:name="com.uqam.mentallys.view.ui.pathway.eventsList.PathwayFragment"
+        android:label="Mon parcours"
+        tools:layout="@layout/fragment_pathway">
+        <action
+            android:id="@+id/action_pathwayFragment_to_selectEventTypeFragment"
+            app:destination="@id/selectEventTypeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.uqam.mentallys.view.ui.login.LoginFragment"
+        android:label="Log-in"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchMapFragment"
+        android:name="com.uqam.mentallys.view.ui.resource.search.SearchFragment"
+        android:label="Recherche carte"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchMapFragment_to_searchListFragment2"
+            app:destination="@id/searchListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchListFragment"
+        android:name="com.uqam.mentallys.view.ui.resource.list.ListFragment"
+        android:label="Recherche liste"
+        tools:layout="@layout/fragment_search_list">
+        <action
+            android:id="@+id/action_searchListFragment_to_searchMapFragment2"
+            app:destination="@id/searchMapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectEventTypeFragment"
+        android:name="com.uqam.mentallys.view.ui.pathway.selecteventtype.SelectEventTypeFragment"
+        android:label="Que se passe-t-il?"
+        tools:layout="@layout/fragment_event_type">
+        <action
+            android:id="@+id/action_selectEventTypeFragment_to_addEventConsultationFragment"
+            app:destination="@id/addEventConsultationFragment" />
+        <action
+            android:id="@+id/action_selectEventTypeFragment_to_addEventMaintenanceFragment"
+            app:destination="@id/addEventMaintenanceFragment" />
+        <action
+            android:id="@+id/action_selectEventTypeFragment_to_addEventPsychotherapyFragment"
+            app:destination="@id/addEventPsychotherapyFragment" />
+        <action
+            android:id="@+id/action_selectEventTypeFragment_to_addEventHospitalizationFragment"
+            app:destination="@id/addEventHospitalizationFragment" />
+        <action
+            android:id="@+id/action_selectEventTypeFragment_to_addEventCommunitySupportFragment"
+            app:destination="@id/addEventCommunitySupportFragment" />
+        <action
+            android:id="@+id/action_selectEventTypeFragment_to_addEventAccommodationFragment"
+            app:destination="@id/addEventAccommodationFragment" />
+        <action
+            android:id="@+id/action_selectEventTypeFragment_to_addEventOtherFragment"
+            app:destination="@id/addEventOtherFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.uqam.mentallys.view.ui.viewpager.ViewPagerFragment"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager">
+        <action
+            android:id="@+id/action_viewPagerFragment_to_mainChatFragment"
+            app:destination="@id/mainChatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEventConsultationFragment"
+        android:name="com.uqam.mentallys.view.ui.pathway.addeditevent.AddEventConsultationFragment"
+        android:label="fragment_add_event_consultation"
+        tools:layout="@layout/fragment_add_event_consultation">
+        <argument
+            android:name="eventType"
+            app:argType="com.uqam.mentallys.model.EventType" />
+        <action
+            android:id="@+id/action_addEventConsultationFragment_to_savedEventFragment"
+            app:destination="@id/savedEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEventMaintenanceFragment"
+        android:name="com.uqam.mentallys.view.ui.pathway.addeditevent.AddEventMaintenanceFragment"
+        android:label="fragment_add_event_maintenance"
+        tools:layout="@layout/fragment_add_event_maintenance">
+        <argument
+            android:name="eventType"
+            app:argType="com.uqam.mentallys.model.EventType" />
+        <action
+            android:id="@+id/action_addEventMaintenanceFragment_to_savedEventFragment"
+            app:destination="@id/savedEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEventPsychotherapyFragment"
+        android:name="com.uqam.mentallys.view.ui.pathway.addeditevent.AddEventPsychotherapyFragment"
+        android:label="fragment_add_event_psychotherapy"
+        tools:layout="@layout/fragment_add_event_psychotherapy">
+        <argument
+            android:name="eventType"
+            app:argType="com.uqam.mentallys.model.EventType" />
+        <action
+            android:id="@+id/action_addEventPsychotherapyFragment_to_savedEventFragment"
+            app:destination="@id/savedEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEventHospitalizationFragment"
+        android:name="com.uqam.mentallys.view.ui.pathway.addeditevent.AddEventHospitalizationFragment"
+        android:label="fragment_add_event_hospitalization"
+        tools:layout="@layout/fragment_add_event_hospitalization">
+        <argument
+            android:name="eventType"
+            app:argType="com.uqam.mentallys.model.EventType" />
+        <action
+            android:id="@+id/action_addEventHospitalizationFragment_to_savedEventFragment"
+            app:destination="@id/savedEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEventCommunitySupportFragment"
+        android:name="com.uqam.mentallys.view.ui.pathway.addeditevent.AddEventCommunitySupportFragment"
+        android:label="fragment_add_event_community_support"
+        tools:layout="@layout/fragment_add_event_community_support">
+        <argument
+            android:name="eventType"
+            app:argType="com.uqam.mentallys.model.EventType" />
+        <action
+            android:id="@+id/action_addEventCommunitySupportFragment_to_savedEventFragment"
+            app:destination="@id/savedEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEventAccommodationFragment"
+        android:name="com.uqam.mentallys.view.ui.pathway.addeditevent.AddEventAccommodationFragment"
+        android:label="fragment_add_event_accommodation"
+        tools:layout="@layout/fragment_add_event_accommodation">
+        <argument
+            android:name="eventType"
+            app:argType="com.uqam.mentallys.model.EventType" />
+        <action
+            android:id="@+id/action_addEventAccommodationFragment_to_savedEventFragment"
+            app:destination="@id/savedEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEventOtherFragment"
+        android:name="com.uqam.mentallys.view.ui.pathway.addeditevent.AddEventOtherFragment"
+        android:label="fragment_add_event_other"
+        tools:layout="@layout/fragment_add_event_other">
+        <argument
+            android:name="eventType"
+            app:argType="com.uqam.mentallys.model.EventType" />
+        <action
+            android:id="@+id/action_addEventOtherFragment_to_savedEventFragment"
+            app:destination="@id/savedEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedEventFragment"
+        android:name="com.uqam.mentallys.view.ui.pathway.addeditevent.SavedEventFragment"
+        android:label="fragment_saved_event"
+        tools:layout="@layout/fragment_saved_event">
+        <action
+            android:id="@+id/action_savedEventFragment_to_pathwayFragment"
+            app:destination="@id/pathwayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.uqam.mentallys.view.ui.login.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainChatFragment"
+        android:name="com.uqam.mentallys.view.ui.message.MainChatFragment"
+        android:label="fragment_main_chat"
+        tools:layout="@layout/fragment_main_chat" />
+    <fragment
+        android:id="@+id/personnelChatFragment"
+        android:name="com.uqam.mentallys.view.ui.message.PersonnelChatFragment"
+        android:label="PersonnelChatFragment"
+        tools:layout="@layout/fragment_personnel_chat"
+        >
+        <argument
+            android:name="SelectedResourceInfo"
+            app:argType="com.uqam.mentallys.view.ui.message.SelectedUserInfo" />
+        <action
+            android:id="@+id/action_personnelChatFragment_to_intervenantProfileFragment"
+            app:destination="@id/intervenantProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personnelMessageFragment"
+        android:name="com.uqam.mentallys.view.ui.message.PersonnelMessageFragment"
+        android:label="fragment_personnel_message"
+        tools:layout="@layout/fragment_personnel_message" >
+        <argument
+            android:name="selectedUser"
+            app:argType="com.uqam.mentallys.view.ui.message.SelectedUserInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/intervenantsFragment"
+        android:name="com.uqam.mentallys.view.ui.message.IntervenantsFragment"
+        android:label="fragment_intervenants"
+        tools:layout="@layout/fragment_intervenants" >
+        <action
+            android:id="@+id/intervenant_to_Profile"
+            app:destination="@id/intervenantProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/intervenantProfileFragment"
+        android:name="com.uqam.mentallys.view.ui.message.IntervenantProfileFragment"
+        android:label="fragment_intervenant_profile"
+        tools:layout="@layout/fragment_intervenant_profile" >
+        <argument
+            android:name="emailIntervenant"
+            app:argType="string" />
+        <action
+            android:id="@+id/Profile_to_intervenantsFragment"
+            app:destination="@id/intervenantsFragment" />
+        <action
+            android:id="@+id/action_intervenantProfileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_intervenantProfileFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_intervenantProfileFragment_to_personnelChatFragment"
+            app:destination="@id/personnelChatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listIntervenantsFragment"
+        android:name="com.uqam.mentallys.view.ui.message.ListIntervenantsFragment"
+        android:label="fragment_list_intervenants"
+        tools:layout="@layout/fragment_list_intervenants" />
+    <fragment
+        android:id="@+id/messagesFragment"
+        android:name="com.uqam.mentallys.view.ui.message.MessagesFragment"
+        android:label="MessagesFragment" >
+        <action
+            android:id="@+id/action_messagesFragment_to_listIntervenantsFragment"
+            app:destination="@id/listIntervenantsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordForgottenFragment"
+        android:name="com.uqam.mentallys.view.ui.login.PasswordForgottenFragment"
+        android:label="fragment_password_forgotten"
+        tools:layout="@layout/fragment_password_forgotten" />
+
+</navigation>

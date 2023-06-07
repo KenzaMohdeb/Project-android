@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        app:cornerRadius="250dp"
+        >
+
+        <View
+            android:id="@+id/item1_resource_preview_separator"
+            android:layout_width="54dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/darker_gray"
+            />
+        <TextView
+            android:id="@+id/required_login_msg"
+            android:layout_width="329dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/item1_resource_preview_separator"
+            android:text="@string/required_login_message"
+            android:textColor="@color/slate"
+            android:textSize="20sp"
+            android:fontFamily="@font/karla_medium"
+            android:letterSpacing="-0.02"
+            android:textAlignment="center"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:layout_centerHorizontal="true"
+            />
+
+        <View
+            android:id="@+id/item2_resource_preview_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="18dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/required_login_msg"
+            android:background="@color/light_grey"
+            />
+
+        <TextView
+            android:id="@+id/connexion_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item2_resource_preview_separator"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/connexion"
+            android:textColor="@color/purple"
+            android:paddingLeft="44dp"
+            android:paddingRight="44dp"
+            android:textSize="16sp" />
+
+        <View
+            android:id="@+id/item3_resource_preview_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/connexion_link"
+            android:background="@color/light_grey"
+            />
+
+        <TextView
+            android:id="@+id/inscription_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item3_resource_preview_separator"
+            android:layout_marginTop="20dp"
+            android:paddingBottom="20dp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/inscription"
+            android:textColor="@color/purple"
+            android:paddingLeft="44dp"
+            android:paddingRight="44dp"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,6 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="azure_communication_ui_calling_inner_space_padding">8dp</dimen>
+    <dimen name="azure_communication_ui_calling_side_margin">32dp</dimen>
+</resources>

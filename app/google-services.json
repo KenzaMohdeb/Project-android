@@ -1,0 +1,130 @@
+{
+  "project_info": {
+    "project_number": "104695963186",
+    "project_id": "mentallys",
+    "storage_bucket": "mentallys.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104695963186:android:131ec2e466e674c8ada62b",
+        "android_client_info": {
+          "package_name": "com.uqam.mentallys"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "104695963186-fo562h0st09i1nlu63kiasuef9tpg2uk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uqam.mentallys",
+            "certificate_hash": "f96fd38dcc3199e27ba9d01ee62ec40336bf7213"
+          }
+        },
+        {
+          "client_id": "104695963186-voqt0c02ufv6gvsuajadodavkmgb6qo1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYxfqUD53JZplI9e_FdQh-NWfpRvbqyZQ"
+        },
+        {
+          "current_key": "AIzaSyAF5oceHlWOkD5WvSGjXZiPBM5H9OxJRbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "104695963186-voqt0c02ufv6gvsuajadodavkmgb6qo1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104695963186:android:eaeaf3e95f81e15eada62b",
+        "android_client_info": {
+          "package_name": "com.uqam.mentallys.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "104695963186-vae98qiheb62iem36e10cul5p84kpbbv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uqam.mentallys.dev",
+            "certificate_hash": "f96fd38dcc3199e27ba9d01ee62ec40336bf7213"
+          }
+        },
+        {
+          "client_id": "104695963186-voqt0c02ufv6gvsuajadodavkmgb6qo1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYxfqUD53JZplI9e_FdQh-NWfpRvbqyZQ"
+        },
+        {
+          "current_key": "AIzaSyAF5oceHlWOkD5WvSGjXZiPBM5H9OxJRbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "104695963186-voqt0c02ufv6gvsuajadodavkmgb6qo1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104695963186:android:a2a60b317317fb00ada62b",
+        "android_client_info": {
+          "package_name": "com.uqam.mentallys.qa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "104695963186-n6d32rglr4vm52jpr65r457scjnghbv8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uqam.mentallys.qa",
+            "certificate_hash": "f96fd38dcc3199e27ba9d01ee62ec40336bf7213"
+          }
+        },
+        {
+          "client_id": "104695963186-voqt0c02ufv6gvsuajadodavkmgb6qo1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYxfqUD53JZplI9e_FdQh-NWfpRvbqyZQ"
+        },
+        {
+          "current_key": "AIzaSyAF5oceHlWOkD5WvSGjXZiPBM5H9OxJRbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "104695963186-voqt0c02ufv6gvsuajadodavkmgb6qo1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

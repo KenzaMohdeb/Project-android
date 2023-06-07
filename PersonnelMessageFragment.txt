@@ -1,0 +1,412 @@
+package com.uqam.mentallys.view.ui.message
+
+
+import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
+import com.azure.android.communication.chat.ChatClientBuilder
+import com.azure.android.communication.chat.ChatThreadAsyncClient
+import com.azure.android.communication.chat.ChatThreadClientBuilder
+import com.azure.android.communication.chat.models.*
+import com.azure.android.communication.common.CommunicationTokenCredential
+import com.azure.android.communication.common.CommunicationUserIdentifier
+import com.azure.android.core.http.policy.UserAgentPolicy
+import com.jakewharton.threetenabp.AndroidThreeTen
+import com.jakewharton.threetenabp.AndroidThreeTen.*
+import com.squareup.picasso.Picasso
+import com.uqam.mentallys.R
+import com.uqam.mentallys.databinding.FragmentPersonnelMessageBinding
+import com.uqam.mentallys.model.resource.Activity
+import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
+
+
+/**
+ * A simple [Fragment] subclass.
+ * Use the [PersonnelChatFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+@AndroidEntryPoint
+class PersonnelMessageFragment : Fragment(R.layout.fragment_personnel_message) {
+
+    /*private lateinit var chatThreadAsyncClient: ChatThreadAsyncClient
+    private lateinit var chatUI: ConstraintLayout
+    private lateinit var setupUI: ConstraintLayout
+    private lateinit var chatAsyncClient: ChatAsyncClient
+    private lateinit var id: String
+    private lateinit var token: String*/
+    //private lateinit var threadId: String
+
+    private val _fetchResourcesResponse: MutableLiveData<String> = MutableLiveData()
+    val fetchResourcesResponse: LiveData<String>
+        get() = _fetchResourcesResponse
+    
+    private lateinit var name: String
+    private lateinit var url: String
+    private val applicationID = "ACS Chat Join"
+    private val sdkName = "azure-communication-com.azure.android.communication.chat"
+    private val sdkVersion = "1.0.0"
+    /*private lateinit var messagesList: MessagesList
+    private lateinit var messageInput: MessageInput
+    private lateinit var adapter: MessagesListAdapter<Message>*/
+    private var endpoint: String? = "https://mentallys-communicationservices-dev.communication.azure.com/"
+    private val firstUserId = "8:acs:ce1e4b81-dc3a-42c0-9a71-7ff148d57eb3_00000014-4b4b-df74-92fd-8b3a0d00f49a"
+    private val secondUserId = "8:acs:ce1e4b81-dc3a-42c0-9a71-7ff148d57eb3_00000014-4b4d-38b3-edbe-a43a0d004037"
+    private val firstUserAccessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwNiIsIng1dCI6Im9QMWFxQnlfR3hZU3pSaXhuQ25zdE5PU2p2cyIsInR5cCI6IkpXVCJ9.eyJza3lwZWlkIjoiYWNzOmNlMWU0YjgxLWRjM2EtNDJjMC05YTcxLTdmZjE0OGQ1N2ViM18wMDAwMDAxNC00YjRiLWRmNzQtOTJmZC04YjNhMGQwMGY0OWEiLCJzY3AiOjE3OTIsImNzaSI6IjE2NjUwMjgyMDkiLCJleHAiOjE2NjUxMTQ2MDksImFjc1Njb3BlIjoiY2hhdCIsInJlc291cmNlSWQiOiJjZTFlNGI4MS1kYzNhLTQyYzAtOWE3MS03ZmYxNDhkNTdlYjMiLCJpYXQiOjE2NjUwMjgyMDl9.spra_UXf6T5B9HI6onhAYeVWV_ETBFIIdqXtm0mNlu45QdbHXAVKYwUrvVovv1BM7l7sy4DAel1GE2Po_x63ESJVw7eRjCK_YzlXzsFbiQ8i3COhIaeymtniXw3ox--yF3_3iYpSvGEywNg-2OI0-hxxCzvMIJ4oLl4rWqGOvoRhkq9dfLZBChy7vS9wXGmbzmSDr28kjrKDVrfV5jz-r7OhQESg5aqVaZSaRpcMsR5Dg2GMASxZ9zOAovddNyaxNLmafCY-aaHRw_k9_2P0PKejMvY5GmVZcLgdZSZTyGnr1NLX3g7jmY4wtej2mq886D4MVnl-g8sguq1iUyV__w"
+    private val secondUserAccessToken ="eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwNiIsIng1dCI6Im9QMWFxQnlfR3hZU3pSaXhuQ25zdE5PU2p2cyIsInR5cCI6IkpXVCJ9.eyJza3lwZWlkIjoiYWNzOmNlMWU0YjgxLWRjM2EtNDJjMC05YTcxLTdmZjE0OGQ1N2ViM18wMDAwMDAxNC00YjRkLTM4YjMtZWRiZS1hNDNhMGQwMDQwMzciLCJzY3AiOjE3OTIsImNzaSI6IjE2NjUwMjgyOTciLCJleHAiOjE2NjUxMTQ2OTcsImFjc1Njb3BlIjoiY2hhdCIsInJlc291cmNlSWQiOiJjZTFlNGI4MS1kYzNhLTQyYzAtOWE3MS03ZmYxNDhkNTdlYjMiLCJpYXQiOjE2NjUwMjgyOTd9.qe6BHFTJtIOXc1TMtZZ8TxIRpn_h74Ve7Geoq7DCGtfiDWVEOcEDpTSpmVXWcsiXx8pzR9PoP06sMZUtG6nGuSZU_Qa71HQTRwmFPVg4PjkfHG4B9ztSOz7BnB5npE6MsQ90RMrkMZuyiQy5AEDK_pEJYHdhLB5ubUOPwk2No7x-xNUyyLFlYbVtIJ2jO6qi8Q78F2ElIyNlmDNyPOxZIrdM8RsQWH3qg9s3VqooyFngPqynME3p9ZuVhN1AMDXM0L3sdP4Hne3sSCYjzZHDMyS9WWUEBQQtsO0dpzibq5rN_3EhJL5W7vcJvRFuwGGhmat-Bpk__wh9bETQwVBtAg"
+    private var threadId1 = "<thread_id>"
+    private var threadId2 = "<thread_id>"
+    private var chatMessageId1 = "<chat_message_id>"
+    private var chatMessageId2 = "<chat_message_id>"
+   // private val sdkVersion = "<chat_sdk_version>"
+    private val APPLICATION_ID = "com.uqam.mentallys"
+    private val SDK_NAME = "azure-communication-com.azure.android.communication.chat"
+    private val TAG = "Chat Quickstart App"
+    private var chatThreadAsyncClient1: ChatThreadAsyncClient? = null
+    private var chatThreadAsyncClient2: ChatThreadAsyncClient? = null
+
+
+    private val viewModel: SharedChatUserInfo by viewModels({requireParentFragment()})
+    private lateinit var binding: FragmentPersonnelMessageBinding
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        binding = FragmentPersonnelMessageBinding.inflate(layoutInflater)
+
+        val selectedUserInfo = viewModel.getUserInfo()
+        binding.personName.text  = selectedUserInfo?.fullUserName
+
+        binding.firstUser1.setOnClickListener{
+            sendMessageToUser2()
+        }
+        binding.secondUser2.setOnClickListener{
+            sendMessageToUser1()
+        }
+        Picasso.get()
+            .load(selectedUserInfo?.userImage)
+            .resize(300, 300)
+            .centerCrop()
+            .into(binding.imageChatPerson)
+        observeEventTypesViewModel()
+        Start1()
+        Start2()
+        
+        return binding.root
+    }
+    private fun log(msg: String) {
+        Log.i(TAG, msg)
+        Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
+    }
+    private fun observeEventTypesViewModel() {
+        // viewModel.resource.observe(viewLifecycleOwner){ eventTypes ->
+        // resourceAdapter.submitList(eventTypes)*/
+        fetchResourcesResponse.observe(viewLifecycleOwner){
+            var it = it
+            binding.firstUser.text = it
+        }
+    }
+
+    public fun Start1() {
+        try {
+
+            // <CREATE A CHAT CLIENT>
+            val chatAsyncClient1 = ChatClientBuilder()
+                .endpoint(endpoint)
+                .credential(CommunicationTokenCredential(firstUserAccessToken))
+                .addPolicy(UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
+                .buildAsyncClient()
+
+            // <CREATE A CHAT THREAD>
+            // A list of ChatParticipant to start the thread with.
+            val participants: MutableList<ChatParticipant> = ArrayList()
+            // The display name for the thread participant.
+            val displayName = "initial participant"
+            participants.add(
+                ChatParticipant()
+                    .setCommunicationIdentifier(CommunicationUserIdentifier(firstUserId))
+                    .setDisplayName(displayName)
+            )
+
+            // The topic for the thread.
+            val topic = "General"
+            // Optional, set a repeat request ID.
+            val repeatabilityRequestID = ""
+            // Options to pass to the create method.
+            val createChatThreadOptions = CreateChatThreadOptions()
+                .setTopic(topic)
+                .setParticipants(participants)
+                .setIdempotencyToken(repeatabilityRequestID)
+            val createChatThreadResult =
+                chatAsyncClient1.createChatThread(createChatThreadOptions).get()
+            val chatThreadProperties = createChatThreadResult.chatThreadProperties
+            threadId1 = chatThreadProperties.id
+
+            // <CREATE A CHAT THREAD CLIENT>
+            chatThreadAsyncClient1 = ChatThreadClientBuilder()
+                .endpoint(endpoint)
+                .credential(CommunicationTokenCredential(firstUserAccessToken))
+                .addPolicy(UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
+                .chatThreadId(threadId1)
+                .buildAsyncClient()
+
+
+            // <RECEIVE CHAT MESSAGES>
+
+            // Start real time notification
+            chatAsyncClient1.startRealtimeNotifications(
+                firstUserAccessToken,
+                context
+            )
+
+            // Register a listener for chatMessageReceived event
+
+            // Register a listener for chatMessageReceived event
+            chatAsyncClient1.addEventHandler(ChatEventType.CHAT_MESSAGE_RECEIVED) { payload: ChatEvent? ->
+                val chatMessageReceivedEvent = payload as ChatMessageReceivedEvent?
+                activity?.runOnUiThread{
+                    binding.firstUser.text = chatMessageReceivedEvent?.content.toString()
+                }
+
+            }
+            // Register a lchatMessageReceivedEvent?.content.toString()istener for chatMessageReceived event
+         /*   chatAsyncClient1.addEventHandler(
+                ChatEventType.CHAT_MESSAGE_RECEIVED
+            ) { payload: ChatEvent? ->
+                val chatMessageReceivedEvent =
+                    payload as ChatMessageReceivedEvent?
+
+                if (chatMessageReceivedEvent != null) {
+                    val authorID =
+                        (chatMessageReceivedEvent.sender as CommunicationUserIdentifier).id.toString()
+                    this@PersonnelMessageFragment.run {
+                        _fetchResourcesResponse.value =  chatMessageReceivedEvent.content.toString()
+                    }
+                    }
+            }*/
+
+            // <ADD A USER>
+            // The display name for the thread participant.
+            val secondUserDisplayName = "a new participant"
+            val participant = ChatParticipant()
+                .setCommunicationIdentifier(CommunicationUserIdentifier(secondUserId))
+                .setDisplayName(secondUserDisplayName)
+            chatThreadAsyncClient1?.addParticipant(participant)
+
+            // <LIST USERS>
+            // The maximum number of participants to be returned per page, optional.
+           /* var maxPageSize = 10
+
+            // Skips participants up to a specified position in response.
+            var skip = 0
+
+            // Options to pass to the list method.
+            val listParticipantsOptions = ListParticipantsOptions()
+                .setMaxPageSize(maxPageSize)
+                .setSkip(skip)
+            val participantsPagedAsyncStream =
+                chatThreadAsyncClient.listParticipants(listParticipantsOptions, RequestContext.NONE)
+            participantsPagedAsyncStream.forEach { chatParticipant: ChatParticipant? -> }
+
+            // <REMOVE A USER>
+            // Using the unique ID of the participant.
+            chatThreadAsyncClient.removeParticipant(CommunicationUserIdentifier(secondUserId)).get()
+
+            // <<SEND A TYPING NOTIFICATION>>
+            chatThreadAsyncClient.sendTypingNotification().get()
+
+            // <<SEND A READ RECEIPT>>
+            chatThreadAsyncClient.sendReadReceipt(chatMessageId).get()
+
+            // <<LIST READ RECEIPTS>>
+            // The maximum number of participants to be returned per page, optional.
+            maxPageSize = 10
+            // Skips participants up to a specified position in response.
+            skip = 0
+            // Options to pass to the list method.
+            val listReadReceiptOptions = ListReadReceiptOptions()
+                .setMaxPageSize(maxPageSize)
+                .setSkip(skip)
+            val readReceiptsPagedAsyncStream =
+                chatThreadAsyncClient.listReadReceipts(listReadReceiptOptions, RequestContext.NONE)
+            readReceiptsPagedAsyncStream.forEach { readReceipt: ChatMessageReadReceipt? -> }*/
+        } catch (e: Exception) {
+            println("Quickstart failed: " + e.message)
+        }
+    }
+    public fun sendMessageToUser2(){
+
+        // <SEND A MESSAGE>
+        // The chat message content, required.
+        val content = binding.firstUserMessage.text.toString()
+        // The display name of the sender, if null (i.e. not specified), an empty name will be set.
+        val senderDisplayName = "An important person"
+        val chatMessageOptions = SendChatMessageOptions()
+            .setType(ChatMessageType.TEXT)
+            .setContent(content)
+            .setSenderDisplayName(senderDisplayName)
+
+        // A string is the response returned from sending a message, it is an id, which is the unique ID of the message.
+        chatMessageId1 = chatThreadAsyncClient1?.sendMessage(chatMessageOptions)?.get()?.id.toString()
+
+    }
+    public fun sendMessageToUser1(){
+
+        // <SEND A MESSAGE>
+        // The chat message content, required.
+        val content = binding.secondUserMessage.text.toString()
+        // The display name of the sender, if null (i.e. not specified), an empty name will be set.
+        val senderDisplayName = "An important person"
+        val chatMessageOptions = SendChatMessageOptions()
+            .setType(ChatMessageType.TEXT)
+            .setContent(content)
+            .setSenderDisplayName(senderDisplayName)
+
+        // A string is the response returned from sending a message, it is an id, which is the unique ID of the message.
+        chatMessageId2 =
+            chatThreadAsyncClient2?.sendMessage(chatMessageOptions)?.get()?.id.toString()
+
+    }
+    public fun Start2() {
+
+        try {
+
+            // <CREATE A CHAT CLIENT>
+            val chatAsyncClient2 = ChatClientBuilder()
+                .endpoint(endpoint)
+                .credential(CommunicationTokenCredential(secondUserAccessToken))
+                .addPolicy(UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
+                .buildAsyncClient()
+
+            // <CREATE A CHAT THREAD>
+            // A list of ChatParticipant to start the thread with.
+            val participants: MutableList<ChatParticipant> = ArrayList()
+            // The display name for the thread participant.
+            val displayName = "initial participant"
+            participants.add(
+                ChatParticipant()
+                    .setCommunicationIdentifier(CommunicationUserIdentifier(secondUserId))
+                    .setDisplayName(displayName)
+            )
+
+            // The topic for the thread.
+            val topic = "General"
+            // Optional, set a repeat request ID.
+            val repeatabilityRequestID = ""
+            // Options to pass to the create method.
+            val createChatThreadOptions = CreateChatThreadOptions()
+                .setTopic(topic)
+                .setParticipants(participants)
+                .setIdempotencyToken(repeatabilityRequestID)
+            val createChatThreadResult =
+                chatAsyncClient2.createChatThread(createChatThreadOptions).get()
+            val chatThreadProperties = createChatThreadResult.chatThreadProperties
+            threadId2 = chatThreadProperties.id
+
+            // <CREATE A CHAT THREAD CLIENT>
+            chatThreadAsyncClient2 = ChatThreadClientBuilder()
+                .endpoint(endpoint)
+                .credential(CommunicationTokenCredential(secondUserAccessToken))
+                .addPolicy(UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
+                .chatThreadId(threadId2)
+                .buildAsyncClient()
+            // <RECEIVE CHAT MESSAGES>
+
+            // Start real time notification
+            chatAsyncClient2.startRealtimeNotifications(
+                secondUserAccessToken,
+                context
+            )
+
+
+            chatAsyncClient2.addEventHandler(ChatEventType.CHAT_MESSAGE_RECEIVED) { payload: ChatEvent? ->
+                val chatMessageReceivedEvent = payload as ChatMessageReceivedEvent?
+                activity?.runOnUiThread{
+                    binding.firstUser.text = chatMessageReceivedEvent?.content.toString()
+                }
+
+
+            }
+            // Register a listener for chatMessageReceived event
+          /*  chatAsyncClient2.addEventHandler(
+                ChatEventType.CHAT_MESSAGE_RECEIVED
+            ) { payload: ChatEvent? ->
+                val chatMessageReceivedEvent =
+                    payload as ChatMessageReceivedEvent?
+
+                if (chatMessageReceivedEvent != null) {
+                    val authorID =
+                        (chatMessageReceivedEvent.sender as CommunicationUserIdentifier).id.toString()
+
+                   // binding.firstUser.text =  chatMessageReceivedEvent.content.toString()
+                }
+            }*/
+
+            // <ADD A USER>
+            // The display name for the thread participant.
+            val secondUserDisplayName = "a new participant"
+            val participant = ChatParticipant()
+                .setCommunicationIdentifier(CommunicationUserIdentifier(firstUserId))
+                .setDisplayName(secondUserDisplayName)
+            chatThreadAsyncClient2?.addParticipant(participant)
+
+            // <LIST USERS>
+            // The maximum number of participants to be returned per page, optional.
+            /* var maxPageSize = 10
+
+             // Skips participants up to a specified position in response.
+             var skip = 0
+
+             // Options to pass to the list method.
+             val listParticipantsOptions = ListParticipantsOptions()
+                 .setMaxPageSize(maxPageSize)
+                 .setSkip(skip)
+             val participantsPagedAsyncStream =
+                 chatThreadAsyncClient.listParticipants(listParticipantsOptions, RequestContext.NONE)
+             participantsPagedAsyncStream.forEach { chatParticipant: ChatParticipant? -> }
+
+             // <REMOVE A USER>
+             // Using the unique ID of the participant.
+             chatThreadAsyncClient.removeParticipant(CommunicationUserIdentifier(secondUserId)).get()
+
+             // <<SEND A TYPING NOTIFICATION>>
+             chatThreadAsyncClient.sendTypingNotification().get()
+
+             // <<SEND A READ RECEIPT>>
+             chatThreadAsyncClient.sendReadReceipt(chatMessageId).get()
+
+             // <<LIST READ RECEIPTS>>
+             // The maximum number of participants to be returned per page, optional.
+             maxPageSize = 10
+             // Skips participants up to a specified position in response.
+             skip = 0
+             // Options to pass to the list method.
+             val listReadReceiptOptions = ListReadReceiptOptions()
+                 .setMaxPageSize(maxPageSize)
+                 .setSkip(skip)
+             val readReceiptsPagedAsyncStream =
+                 chatThreadAsyncClient.listReadReceipts(listReadReceiptOptions, RequestContext.NONE)
+             readReceiptsPagedAsyncStream.forEach { readReceipt: ChatMessageReadReceipt? -> }*/
+        } catch (e: Exception) {
+            println("Quickstart failed: " + e.message)
+        }
+    }
+
+}
+
+

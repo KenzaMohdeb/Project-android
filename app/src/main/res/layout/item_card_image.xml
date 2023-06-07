@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_resource_category_container"
+    android:layout_width="wrap_content"
+    android:layout_height="35dp"
+    android:layout_marginTop="12dp"
+    app:cardElevation="0dp"
+    android:clipToPadding="false"
+    android:layout_marginBottom="13dp"
+    app:cardBackgroundColor="?attr/background"
+    app:cardCornerRadius="11dp"
+    android:layout_marginEnd="15dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:contentDescription="@string/generic_decorative_image_description"
+            android:id="@+id/item_resource_category_icon"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorPrimary" />
+
+        <TextView
+            android:letterSpacing="-0.01"
+            android:id="@+id/item_resource_category_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/item_resource_category_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/karla_medium"
+            android:textSize="16sp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

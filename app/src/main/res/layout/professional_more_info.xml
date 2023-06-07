@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        app:cornerRadius="128dp">
+
+        <View
+            android:id="@+id/item1_resource_preview_separator"
+            android:layout_width="54dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/darker_gray"
+            />
+        <TextView
+            android:id="@+id/professional_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Pair Aidant"
+            android:textColor="@color/purple"
+            android:textSize="20sp"
+            android:layout_below="@+id/item1_resource_preview_separator"
+            android:textAlignment="center"
+            />
+        <TextView
+            android:id="@+id/idTVCourseTracks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/professional_name"
+            android:layout_marginTop="11dp"
+            android:paddingBottom="15dp"
+
+            android:text="Un pair aidant est une personne formée qui a traversé comme vous des difficultés, et qui va mieux."
+            android:textColor="@color/black"
+            android:paddingLeft="44dp"
+            android:paddingRight="44dp"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

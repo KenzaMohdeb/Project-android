@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_resource_history_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="false">
+
+    <ImageView
+        android:id="@+id/item_resource_history_image"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/generic_decorative_image_description"
+        android:focusable="false"
+        android:src="@drawable/ic_baseline_access_time_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/colorTertiary" />
+
+    <TextView
+        android:id="@+id/item_resource_history_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="18dp"
+        android:focusable="false"
+        android:fontFamily="@font/karla_regular"
+        android:letterSpacing="-0.02"
+        android:lineSpacingExtra="2.7sp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/item_resource_history_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_resource_history_category_card"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_marginTop="7dp"
+        android:elevation="0dp"
+        android:focusable="false"
+        android:paddingHorizontal="2dp"
+        app:cardBackgroundColor="?attr/colorPrimaryVariant"
+        app:cardCornerRadius="13dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="@id/item_resource_history_name"
+        app:layout_constraintTop_toBottomOf="@id/item_resource_history_name">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false">
+
+            <ImageView
+                android:id="@+id/item_resource_history_category_icon"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginVertical="4dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/generic_decorative_image_description"
+                android:focusable="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/item_resource_history_category_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="?attr/colorPrimary" />
+
+            <TextView
+                android:id="@+id/item_resource_history_category_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="8dp"
+                android:focusable="false"
+                android:fontFamily="@font/karla_medium"
+                android:letterSpacing="-0.01"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/item_resource_history_category_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/bottom_sheet_filter_cost_separator"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="18dp"
+        android:background="@android:color/darker_gray"
+        android:focusable="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/item_resource_history_name"
+        app:layout_constraintTop_toBottomOf="@id/item_resource_history_category_card" />
+</androidx.constraintlayout.widget.ConstraintLayout>

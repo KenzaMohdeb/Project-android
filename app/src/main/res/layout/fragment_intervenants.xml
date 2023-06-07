@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.ui.message.IntervenantsFragment"
+    >
+
+    <com.uqam.mentallys.view.components.AdvancedSearchComponent
+        android:id="@+id/search_input_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="12dp"
+        android:elevation="25dp"
+        app:advanced_search_component_is_filter_button_shown="true"
+        app:advanced_search_component_subtitle="@string/intervenant_search_subtitle"
+        app:advanced_search_component_title="@string/intervenant_search_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+<LinearLayout
+    android:id="@+id/autourDemoi"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="18dp"
+    android:paddingBottom="21dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/search_input_card"
+    tools:ignore="UseCompoundDrawables">
+    <ImageView
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/near_me"
+        android:layout_marginStart="30dp"
+        app:tint="?colorPrimary"
+        android:contentDescription="@string/approximatif"
+        />
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/autour_de_moi"
+    android:layout_marginStart="11dp"
+    android:fontFamily="@font/karla_medium"
+    android:textSize="16sp"/>
+</LinearLayout>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_search_intervant_fragment"
+        android:name="com.uqam.mentallys.view.ui.message.ListIntervenantsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/autourDemoi"
+        tools:layout="@layout/fragment_list_intervenants" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_search_list_fragment"
+        android:name="com.uqam.mentallys.view.ui.resource.list.ListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_search_intervant_fragment"
+        tools:layout="@layout/fragment_search_list" />
+
+    <ImageView
+        android:id="@+id/fragment_search_loading"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="25dp"
+        android:contentDescription="@string/generic_decorative_image_description"
+        android:src="@drawable/ic_mentallys_loading"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_search_list_fragment" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_search_history_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="?attr/colorSurface"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_input_card">
+
+        <TextView
+            android:focusable="false"
+            android:id="@+id/fragment_search_history_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="25dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/inter_medium"
+            android:maxLines="1"
+            android:text="@string/search_recently_seen_resources"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:focusable="false"
+            android:id="@+id/fragment_search_history_recycler_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_search_history_title">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:focusable="false"
+                android:id="@+id/fragment_search_history_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

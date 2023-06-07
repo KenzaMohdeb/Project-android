@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".view.ui.homepage.HomeFragment">
+
+    <ImageView
+        android:layout_width="512dp"
+        android:layout_height="512dp"
+        android:contentDescription="@string/generic_decorative_image_description"
+        android:rotation="110"
+        android:src="@drawable/background"
+        android:translationX="200dp"
+        android:translationY="-100dp"
+        app:layout_constraintStart_toStartOf="@id/viewpager_main_section"
+        app:layout_constraintTop_toTopOf="@+id/viewpager_main_section" />
+
+    <LinearLayout
+        android:id="@+id/viewpager_main_section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_light"
+            android:paddingHorizontal="44dp"
+            android:paddingBottom="44sp"
+            android:text="@string/greetings"
+            android:textSize="42sp" />
+
+        <ImageView
+            android:id="@+id/viewpager_image"
+            android:layout_width="wrap_content"
+            android:layout_height="241dp"
+            android:layout_marginBottom="44sp"
+            android:contentDescription="@string/generic_decorative_image_description"
+            android:src="@drawable/ic_mentallys_window" />
+
+        <TextView
+            android:id="@+id/viewpager_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/karla_regular"
+            android:gravity="center"
+            android:paddingHorizontal="44sp"
+            android:paddingBottom="26sp"
+            android:text="@string/view_pager_description"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/viewpager_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/karla_regular"
+            android:gravity="center"
+            android:text="@string/view_pager_mention"
+            android:textColor="@color/purple"
+            android:textSize="20sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/viewpage_button"
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/begin"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="27dp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

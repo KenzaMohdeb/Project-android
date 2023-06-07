@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Disable the share button
+    <item
+        android:id="@+id/share"
+        android:icon="@drawable/ic_share"
+        app:iconTint="@color/slate"
+        android:title="@string/resource_menu_share"
+        app:showAsAction="ifRoom" />
+        -->
+
+    <item
+        app:contentInsetEnd="20dp"
+        android:id="@+id/bookmark"
+        android:icon="@drawable/ic_bookmark"
+        app:iconTint="@color/slate"
+        android:title="@string/resource_menu_bookmark"
+        app:showAsAction="ifRoom" />
+</menu>

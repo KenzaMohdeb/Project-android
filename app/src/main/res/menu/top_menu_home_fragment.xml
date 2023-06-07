@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    //0
+    <item
+        android:id="@+id/notification"
+        android:icon="@drawable/ic_baseline_bell_24"
+        app:iconTint="@color/slate"
+        android:title="Call"
+        app:showAsAction="always" />
+    //1
+    <item
+        android:id="@+id/warning"
+        android:icon="@drawable/ic_baseline_warning_24"
+        app:iconTint="@color/slate"
+        android:title="Call"
+        app:showAsAction="always" />
+    //2
+    <item
+        android:id="@+id/login"
+        app:iconTint="@color/slate"
+        android:title="login"
+        app:showAsAction="ifRoom"/>
+    //3
+    <item
+        android:id="@+id/logged"
+        app:iconTint="@color/slate"
+        android:title="logged in"
+        app:showAsAction="always"
+        android:visible="false"/>
+    //4
+    <item android:id="@+id/createAccount"
+        app:iconTint="@color/slate"
+        android:title="Create Account"
+        app:showAsAction="ifRoom" />
+    //5
+    <item android:id="@+id/Logout"
+        app:iconTint="@color/slate"
+        android:title="Logout"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+</menu>

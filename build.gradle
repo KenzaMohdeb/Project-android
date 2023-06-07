@@ -1,0 +1,44 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        kotlin_version = "1.7.0"
+        gradle_version = '7.3.0'
+        nav_version = "2.5.0"
+        hilt_version = '2.42'
+        room_version = '2.5.0-alpha02'
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+        maven {url "https://plugins.gradle.org/m2/"} // added for sonarQube
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradle_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3"// added for sonarQube
+        classpath 'org.jetbrains.kotlinx:kover:0.5.0'
+        classpath "de.mannodermaus.gradle.plugins:android-junit5:1.8.2.0"
+        classpath 'com.google.gms:google-services:4.3.13'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".view.ui.pathway.addeditevent.SavedEventFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_saved_event"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/ic_mentallys_walk" />
+
+        <ImageView
+            android:id="@+id/image_saved_check"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/image_saved_event"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/check" />
+
+        <TextView
+            android:id="@+id/text_saved_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Événement ajouté !"
+            android:layout_below="@+id/image_saved_check"
+            android:fontFamily="@font/inter_semibold"
+            android:textColor="@color/black"
+            android:textSize="32dp"
+            android:gravity="center"
+            android:layout_marginTop="40dp"
+            style="@style/TextAppearance.MaterialComponents.Headline4" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fab_share_event"
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/text_saved_event"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom|center"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:text="Partager avec mon réseau"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="27dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fab_continue_event"
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/fab_share_event"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom|center"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Continuer"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="27dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"/>
+
+    </RelativeLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
